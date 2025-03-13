@@ -1,0 +1,13 @@
+name: Example Workflow
+
+on: [push]  # Der Workflow startet bei jedem Push
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use secret in script
+        run: echo "Mein API Key ist: ${{ secrets.API_KEY }}"
